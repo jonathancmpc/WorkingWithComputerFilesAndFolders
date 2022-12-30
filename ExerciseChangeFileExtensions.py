@@ -8,9 +8,7 @@ root_dir = Path('files/ChangeExtension')
     filepath = root_dir / Path(filename)
     filepath.touch() """
 
-file_paths = root_dir.iterdir()
-
-for path in file_paths:
+for path in root_dir.rglob('*.txt'):
     if path.is_file():
         new_filepath = path.with_suffix('.csv')
         path.rename(new_filepath)
